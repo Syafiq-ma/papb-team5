@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/hp/AndroidStudioProjects/papbteam5/app/src/main/res/drawable/header.xml" value="0.1574074074074074" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/papbteam5/app/src/main/res/drawable/shape.xml" value="0.11614583333333334" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/papbteam5/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Contacts/Documents/School/UGM/Learnings/papb-team5/app/src/main/res/drawable/btn_back.xml" value="0.2203125" />
+        <entry key="..\:/Users/ASUS/Contacts/Documents/School/UGM/Learnings/papb-team5/app/src/main/res/drawable/btn_elipsis.xml" value="0.2203125" />
+        <entry key="..\:/Users/ASUS/Contacts/Documents/School/UGM/Learnings/papb-team5/app/src/main/res/layout/activity_detail_tugas.xml" value="0.33" />
+        <entry key="..\:/Users/ASUS/Contacts/Documents/School/UGM/Learnings/papb-team5/app/src/main/res/layout/activity_main.xml" value="0.192481884057971" />
       </map>
     </option>
   </component>
