@@ -16,5 +16,6 @@
     <color name="pink_text">#9D5C5C</color>
     <color name="grey_todo_background">#EFF1F7</color>
     <color name="grey_check_btn">#929292</color>
+    <color name = "darkgrey_date">#545454</color>
 
 </resources>
