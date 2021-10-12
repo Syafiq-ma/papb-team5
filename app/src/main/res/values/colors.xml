@@ -11,12 +11,14 @@
     <color name = "darkblue">#192D9D</color>
     <color name = "greyDetail">#727272</color>
     <color name = "greyBackground">#f1f1f1</color>
-    <color name = "light_green">#CAFFC9</color>
+    <color name = "light_green">#E7FFE7</color>
+    <color name = "light_blue">#E7F5FF</color>
     <color name= "dark_green">#5E9D5C</color>
     <color name="pink_background">#FFC9C9</color>
     <color name="pink_text">#9D5C5C</color>
     <color name="grey_todo_background">#EFF1F7</color>
     <color name="grey_check_btn">#929292</color>
     <color name = "darkgrey_date">#545454</color>
+    <color name = "green">#1C9D19</color>
 
 </resources>
