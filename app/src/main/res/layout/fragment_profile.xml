@@ -1,74 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
->
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/main_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        android:elevation="0dp"
-        android:background="@color/primary_blue"
-        app:layout_constraintTop_toTopOf="parent"
-    >
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/viewMainTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Profil Anda"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:gravity="center"
-    />
-    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/profile_info_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/header"
-        app:layout_constraintTop_toBottomOf="@id/main_toolbar"
-        android:paddingBottom="20dp"
         android:paddingHorizontal="16dp"
-    >
+        android:paddingBottom="20dp"
+        app:layout_constraintTop_toTopOf="parent">
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/main_profile_image"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@drawable/Daffa1"
+            android:src="@drawable/photo_daffa1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-        />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daffa Bilnadzary"
-            app:layout_constraintStart_toEndOf="@id/main_profile_image"
-            app:layout_constraintTop_toTopOf="@id/main_profile_image"
             android:layout_marginLeft="10dp"
-            android:textColor="@color/white"
             android:fontFamily="@font/poppins_bold"
+            android:text="Daffa Bilnadzary"
+            android:textColor="@color/white"
             android:textSize="16sp"
-        />
+            app:layout_constraintStart_toEndOf="@id/main_profile_image"
+            app:layout_constraintTop_toTopOf="@id/main_profile_image" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@id/main_profile_image"
-            app:layout_constraintStart_toEndOf="@id/main_profile_image"
-            android:text="Sunting profil Anda"
-            android:textSize="10sp"
-            android:minHeight="0dp"
-            android:textAllCaps="false"
-            android:background="@android:color/white"
             android:layout_marginLeft="10dp"
-        />
+            android:background="@android:color/white"
+            android:minHeight="0dp"
+            android:text="Sunting profil Anda"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/main_profile_image"
+            app:layout_constraintStart_toEndOf="@id/main_profile_image" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -81,7 +59,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="50dp"
         android:layout_marginLeft="20dp"
-    />
+        />
 
     <TextView
         android:layout_width="75dp"
@@ -94,7 +72,7 @@
         android:textColor="@color/black"
         android:fontFamily="@font/poppins_bold"
         android:lineHeight="20sp"
-    />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,7 +85,7 @@
         android:fontFamily="@font/poppins_bold"
         android:textSize="30sp"
         android:textColor="@color/dark_green"
-    />
+        />
 
     <!-- Credits to Daffa's work -->
     <TextView
@@ -122,18 +100,18 @@
         android:textColor="@color/black"
         app:layout_constraintTop_toBottomOf="@id/completed_tasks_item_container"
         app:layout_constraintStart_toStartOf="parent"
-    />
+        />
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView11"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginRight="30dp"-->
-<!--        android:text="Lihat Semua"-->
-<!--        android:textColor="@color/primary_blue"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/tasks_history_heading"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/tasks_history_heading" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView11"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginRight="30dp"-->
+    <!--        android:text="Lihat Semua"-->
+    <!--        android:textColor="@color/primary_blue"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/tasks_history_heading"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/tasks_history_heading" />-->
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
@@ -203,7 +181,5 @@
         app:layout_constraintEnd_toEndOf="@+id/view2"
         app:layout_constraintStart_toStartOf="@+id/view2"
         app:layout_constraintTop_toTopOf="@+id/view2" />
-
-    <!-- End of Daffa's work -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
