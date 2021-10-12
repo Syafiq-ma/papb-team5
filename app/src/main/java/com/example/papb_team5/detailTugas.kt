@@ -12,8 +12,9 @@ class detailTugas : AppCompatActivity() {
 
         btn_back.setOnClickListener{
 
-            var intent = Intent(this@detailTugas, fragment_home::class.java)
-            startActivity(intent)
+//            var intent = Intent(this@detailTugas, fragment_home::class.java)
+//            startActivity(intent)
+            finish()
         }
     }
 }
