@@ -9,3 +9,4 @@ import android.view.ViewGroup
 class fragment_home : Fragment(R.layout.fragment_home) {
 
 }
+
