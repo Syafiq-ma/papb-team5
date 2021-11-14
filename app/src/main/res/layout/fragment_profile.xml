@@ -50,7 +50,7 @@
             app:layout_constraintStart_toEndOf="@id/main_profile_image"
             app:layout_constraintTop_toTopOf="@id/main_profile_image" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_elispis_white"
             android:layout_width="4dp"
             android:layout_height="18dp"
@@ -60,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_editProfile"
             android:layout_width="69dp"
             android:layout_height="13.66dp"
@@ -75,7 +75,7 @@
             app:layout_constraintBottom_toBottomOf="@id/main_profile_image"
             app:layout_constraintStart_toEndOf="@id/main_profile_image" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_notification"
             android:layout_width="20dp"
             android:layout_height="20dp"

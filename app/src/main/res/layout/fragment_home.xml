@@ -153,7 +153,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="15dp"
-        android:src="@drawable/img_base"
+        android:src="@drawable/base"
         app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
@@ -213,7 +213,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/img_base"
+        android:background="@drawable/base"
         app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
@@ -305,53 +305,19 @@
         app:layout_constraintTop_toTopOf="@+id/textView14"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <View
-        android:id="@+id/view4"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="15dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todo_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/todo_background"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-    <View
-        android:id="@+id/view5"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="15dp"
-        android:background="@drawable/btn_check"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintStart_toStartOf="@+id/view4"
-        app:layout_constraintTop_toTopOf="@+id/view4"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="Layouting in Android Studio"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintStart_toEndOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
-        android:text="8:00 AM"
-        android:textColor="@color/grey_check_btn"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintEnd_toEndOf="@+id/view4"
-        app:layout_constraintTop_toTopOf="@+id/view4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        tools:listitem="@layout/todo_view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
