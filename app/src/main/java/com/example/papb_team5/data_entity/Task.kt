@@ -5,7 +5,7 @@ import java.util.Date
 
 @Entity(tableName = "task_table")
 data class Task(
-    @PrimaryKey val id: Int,
+    @PrimaryKey
     val taskTitle: String,
     val taskDescription: String
     )
