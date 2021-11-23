@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.papb_team5.MainActivity
 import com.example.papb_team5.R
 import com.example.papb_team5.detailTugas
 import com.example.papb_team5.fragment_home
 import com.example.papb_team5.model.Affirmation
 
 class toDoItemAdapter(
-    private val context: fragment_home,
+    private val context: MainActivity,
     private val dataset: List<Affirmation>,
     private val onClick: ((titleName: String) -> Unit)? = null
     ): RecyclerView.Adapter<toDoItemAdapter.ItemViewHolder>()

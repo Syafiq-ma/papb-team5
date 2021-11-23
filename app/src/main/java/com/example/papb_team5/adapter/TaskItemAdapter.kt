@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.papb_team5.R
 import com.example.papb_team5.data_entity.Task
 
-class taskItemAdapter : ListAdapter<Task, taskItemAdapter.TaskViewHolder>(TASKS_COMPARATOR) {
+class TaskItemAdapter : ListAdapter<Task, TaskItemAdapter.TaskViewHolder>(TASKS_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
         return TaskViewHolder.create(parent)

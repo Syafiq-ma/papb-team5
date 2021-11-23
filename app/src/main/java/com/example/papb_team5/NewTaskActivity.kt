@@ -27,7 +27,8 @@ class NewTaskActivity : AppCompatActivity() {
             } else{
                 val title = editTitleView.text.toString()
                 val desc = editDescView.text.toString()
-                replyIntent.putExtra(EXTRA_REPLY, title)
+                replyIntent.putExtra(EXTRA_REPLY1, title)
+                replyIntent.putExtra(EXTRA_REPLY2, desc)
                 setResult(Activity.RESULT_OK, replyIntent)
             }
             finish()
@@ -35,7 +36,8 @@ class NewTaskActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_REPLY = "com.example.android.tasklistsql.REPLY"
+        const val EXTRA_REPLY1 = "com.example.android.tasklistsql.REPLY1"
+        const val EXTRA_REPLY2 = "com.example.android.tasklistsql.REPLY2"
     }
 
 }

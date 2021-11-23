@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    compileSdk 30
+    compileSdk 31
 
     buildFeatures {
         viewBinding = true
@@ -13,8 +13,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.papb_team5"
-        minSdk 21
-        targetSdk 30
+        minSdk 29
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
