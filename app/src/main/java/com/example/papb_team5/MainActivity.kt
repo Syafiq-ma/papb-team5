@@ -9,14 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.papb_team5.adapter.toDoItemAdapter
 import com.example.papb_team5.data_entity.Task
 import com.example.papb_team5.room_database.Constant
-/*
-import com.example.papb_team5.adapter.TaskItemAdapter
-import com.example.papb_team5.adapter.toDoItemAdapter
-import com.example.papb_team5.application.TasksApplication
-import com.example.papb_team5.data.datasource*/
 import com.example.papb_team5.room_database.TaskRoomDatabase
-//import com.example.papb_team5.view_model.TaskViewModel
-//import com.example.papb_team5.view_model.TaskViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_task.*
 import kotlinx.coroutines.CoroutineScope
