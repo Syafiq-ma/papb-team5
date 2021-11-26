@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import com.example.papb_team5.MainActivity
+import com.example.papb_team5.R
 
 // Notification ID.
 private val NOTIFICATION_ID = 0
@@ -33,30 +34,15 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
 
     val builder = NotificationCompat.Builder(
         applicationContext,
-        applicationContext.getString(R.string.egg_notification_channel_id)
+        applicationContext.getString(R.string.task_notification_channel_id)
     )
-        .setSmallIcon(R.drawable.cooked_egg)
-        .setContentTitle(applicationContext
-            .getString(R.string.notification_title))
-        .setContentText(messageBody)
-
-        .setContentIntent(contentPendingIntent)
-        .setAutoCancel(true)
-
-        .setStyle(bigPicStyle)
-        .setLargeIcon(eggImage)
-
-        .addAction(
-            R.drawable.egg_icon,
-            applicationContext.getString(R.string.snooze),
-            snoozePendingIntent
-        )
+        //add notification action
 
         .setPriority(NotificationCompat.PRIORITY_HIGH)
 
     notify(NOTIFICATION_ID, builder.build())
 }
-*/
+
 fun NotificationManager.cancelNotifications() {
     cancelAll()
-}
+}*/

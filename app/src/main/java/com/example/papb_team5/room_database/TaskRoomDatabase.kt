@@ -9,15 +9,32 @@ import kotlinx.coroutines.CoroutineScope
 import com.example.papb_team5.data_entity.Task
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Task::class), version = 1, exportSchema = false)
+@Database(
+    entities = [Task::class],
+    version = 1
+)
+
 abstract class TaskRoomDatabase : RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
 
     companion object {
-        @Volatile
-        private var INSTANCE: TaskRoomDatabase? = null
+        @Volatile private var INSTANCE: TaskRoomDatabase? = null
+        private val LOCK = Any()
 
+        operator fun invoke(context: Context) = INSTANCE ?: synchronized(LOCK){
+            INSTANCE ?: buildDatabase(context).also{
+                INSTANCE = it
+            }
+        }
+
+        private fun buildDatabase(context: Context) = Room.databaseBuilder(
+            context.applicationContext,
+            TaskRoomDatabase::class.java,
+            "task_table.db"
+        ).build()
+
+        /*
         fun getDatabase(
             context: Context,
             scope: CoroutineScope
@@ -35,9 +52,10 @@ abstract class TaskRoomDatabase : RoomDatabase() {
                 // return instance
                 instance
             }
-        }
+        }*/
     }
 
+    /*
     private class TaskDatabaseCallback(
         private val scope: CoroutineScope
     ) : RoomDatabase.Callback(){
@@ -58,8 +76,5 @@ abstract class TaskRoomDatabase : RoomDatabase() {
                     "You can use any frameworks you want to!")
             taskDao.insert(task)
         }
-    }
-
-
-
+    }*/
 }

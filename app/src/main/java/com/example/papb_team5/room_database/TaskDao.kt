@@ -1,9 +1,6 @@
 package com.example.papb_team5.room_database
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.papb_team5.data_entity.Task
 import kotlinx.coroutines.flow.Flow
 
@@ -11,12 +8,19 @@ import kotlinx.coroutines.flow.Flow
 interface TaskDao {
 
     @Query("SELECT * FROM task_table")
-    fun getAllTasks(): Flow<List<Task>>
+    suspend fun getAllTasks(): List<Task>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    //@Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Query("SELECT * FROM task_table WHERE id =:task_id")
+    suspend fun getTask(task_id: Int): List<Task>
+
+    @Update
+    suspend fun updateTask(task: Task)
+
+    @Delete
+    suspend fun deleteTask(task: Task)
+
+    @Insert
     suspend fun insert(task: Task)
-
-    @Query("DELETE FROM task_table")
-    suspend fun deleteAll()
 
 }
