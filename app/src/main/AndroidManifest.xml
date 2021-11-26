@@ -9,6 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Papbteam5">
+
+        <activity
+            android:name=".profileActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".NewTaskActivity"
+            android:exported="true" />
         <activity
             android:name=".detailTugas"
             android:exported="true" />
@@ -17,7 +24,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
