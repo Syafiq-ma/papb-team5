@@ -45,13 +45,6 @@ class MainActivity : AppCompatActivity() {
         //recyclerView?.setHasFixedSize(true)
 
         /*
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener {
-            val intent = Intent(this@MainActivity, NewTaskActivity::class.java)
-            startActivityForResult(intent, newTaskActivityRequestCode)
-        }*/
-
-        /*
         taskViewModel.allTasks.observe(this) { tasks ->
             // Update the cached copy of the words in the adapter.
             tasks.let { adapter.submitList(it) }
@@ -108,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     fun intentEdit(Id: Int, intentType: Int){
         startActivity(
             Intent(applicationContext, NewTaskActivity::class.java)
-                .putExtra("intent_id", Id)
+                .putExtra("intent_id",Id)
                 .putExtra("intent_type", intentType)
         )
     }
@@ -129,26 +122,5 @@ class MainActivity : AppCompatActivity() {
         todo_recycler?.setHasFixedSize(true)
     }
 
-    /*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, intentData: Intent?) {
-        super.onActivityResult(requestCode, resultCode, intentData)
 
-        if (requestCode == newTaskActivityRequestCode && resultCode == Activity.RESULT_OK) {
-
-            val replyTitle = intentData?.getStringExtra(NewTaskActivity.EXTRA_REPLY1).toString()
-            val replyDesc = intentData?.getStringExtra(NewTaskActivity.EXTRA_REPLY2).toString()
-
-            let {
-                val task = Task(replyTitle, replyDesc)
-                taskViewModel.insert(task)
-            }
-
-        } else {
-            Toast.makeText(
-                applicationContext,
-                R.string.empty_not_saved,
-                Toast.LENGTH_LONG
-            ).show()
-        }
-    }*/
 }
