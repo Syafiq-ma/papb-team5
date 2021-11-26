@@ -10,7 +10,7 @@
     <!-- for NewTaskActivity -->
     <string name="taskTitle_hint">Title..</string>
     <string name="taskDesc_hint">Description..</string>
-    <string name="button_save">Save</string>
+    <string name="button_save">Simpan</string>
     <string name="empty_not_saved">Task is not saved because it is empty!</string>
     <string name="add_task">Add Task</string>
 
