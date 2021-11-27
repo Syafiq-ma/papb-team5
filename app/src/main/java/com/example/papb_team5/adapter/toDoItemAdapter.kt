@@ -29,23 +29,26 @@ class toDoItemAdapter(
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
-        val item = tasks[position]
-        holder.view.textView15.text = item.taskTitle
+        val itemTask = tasks[position]
+        holder.view.textView15.text = itemTask.taskTitle
         holder.itemView.setOnClickListener{
-            listener.onClick(item)
+            listener.onClick(itemTask)
         }
 
         val button: View = holder.view.findViewById(R.id.todo_elipsis_layout)
+
         button.setOnClickListener{
             val popupMenu = PopupMenu(context, it)
             popupMenu.setOnMenuItemClickListener { item ->
                 when (item.itemId){
                     R.id.nav_edit ->{
-                        Toast.makeText(context, "Edit Button pressed", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(context, "Edit Button pressed", Toast.LENGTH_SHORT).show()
+                        listener.onUpdate(itemTask)
                         true
                     }
                     R.id.nav_delete -> {
-                        Toast.makeText(context, "Delete Button pressed", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Task deleted", Toast.LENGTH_SHORT).show()
+                        listener.onDelete(itemTask)
                         true
                     }
                     else -> false
@@ -97,6 +100,7 @@ class toDoItemAdapter(
     interface OnAdapterListener{
         fun onClick(task: Task)
         fun onUpdate(task: Task)
+        fun onDelete(task: Task)
     }
 
 

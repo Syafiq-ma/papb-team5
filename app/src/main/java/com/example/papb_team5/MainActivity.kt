@@ -86,6 +86,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        loadTask()
+    }
+
+    fun loadTask(){
         CoroutineScope(Dispatchers.IO).launch{
             val tasks = db.taskDao().getAllTasks()
             Log.d("MainActivity", "dbresponse: $tasks")
@@ -121,6 +125,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView(){
         tasksAdapter = toDoItemAdapter(this, arrayListOf(), object : toDoItemAdapter.OnAdapterListener{
+
             override fun onClick(task: Task) {
                 // read detail task
                 intentView(task.id, Constant.TYPE_READ)
@@ -129,6 +134,12 @@ class MainActivity : AppCompatActivity() {
             override fun onUpdate(task: Task) {
                 intentEdit(task.id, Constant.TYPE_UPDATE)
             }
+            override fun onDelete(task: Task) {
+                CoroutineScope(Dispatchers.IO).launch{
+                    db.taskDao().deleteTask(task)
+                    loadTask()
+                }
+            }
         })
         todo_recycler.apply{
             layoutManager = LinearLayoutManager(applicationContext)
@@ -136,6 +147,5 @@ class MainActivity : AppCompatActivity() {
         }
         //todo_recycler?.setHasFixedSize(true)
     }
-
 
 }
