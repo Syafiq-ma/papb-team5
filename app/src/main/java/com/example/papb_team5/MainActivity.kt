@@ -35,14 +35,14 @@ class MainActivity : AppCompatActivity() {
         setupListener()
         setupRecyclerView()
 
-
+/*
         //val recyclerView = findViewById<RecyclerView>(R.id.todo_recycler)
         //val adapter = toDoItemAdapter(arrayListOf())
         //val adapter = TaskItemAdapter()
         //recyclerView.adapter = toDoItemAdapter(this, arrayListOf())
         //recyclerView.layoutManager = LinearLayoutManager(this)
 
-        //recyclerView?.setHasFixedSize(true)
+        //recyclerView?.setHasFixedSize(true)*/
 
         /*
         taskViewModel.allTasks.observe(this) { tasks ->
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     fun intentEdit(Id: Int, intentType: Int){
         startActivity(
             Intent(applicationContext, NewTaskActivity::class.java)
-                .putExtra("intent_id",Id)
+                .putExtra("intent_id", Id)
                 .putExtra("intent_type", intentType)
         )
     }
@@ -119,7 +119,7 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(applicationContext)
             adapter = tasksAdapter
         }
-        todo_recycler?.setHasFixedSize(true)
+        //todo_recycler?.setHasFixedSize(true)
     }
 
 
