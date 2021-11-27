@@ -33,16 +33,27 @@
         app:layout_constraintStart_toEndOf="@+id/btn_back"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <android.widget.Button
-        android:id="@+id/btn_elipsis"
-        android:layout_width="4dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/btn_elipsis_layout"
+        android:layout_width="18dp"
         android:layout_height="18dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="15dp"
-        android:background="@drawable/ic_btn_elipsis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp">
+
+        <android.widget.Button
+            android:id="@+id/btn_elipsis"
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/ic_btn_elipsis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <TextView
         android:id="@+id/txt_judulTugas"

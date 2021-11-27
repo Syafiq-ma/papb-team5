@@ -4,14 +4,18 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.papb_team5.adapter.toDoItemAdapter
 import com.example.papb_team5.data_entity.Task
 import com.example.papb_team5.room_database.Constant
 import com.example.papb_team5.room_database.TaskRoomDatabase
+import kotlinx.android.synthetic.main.activity_detail_tugas.*
+import kotlinx.android.synthetic.main.activity_detail_tugas.btn_elipsis_layout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_task.*
+import kotlinx.android.synthetic.main.todo_view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -31,6 +35,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //popupMenu()
 
         setupListener()
         setupRecyclerView()
@@ -73,8 +79,17 @@ class MainActivity : AppCompatActivity() {
         }*/
     }
 
+    /*
+    private fun popupMenu(){
+        val popupMenu = PopupMenu(applicationContext, t)
+    }*/
+
     override fun onStart() {
         super.onStart()
+        loadTask()
+    }
+
+    fun loadTask(){
         CoroutineScope(Dispatchers.IO).launch{
             val tasks = db.taskDao().getAllTasks()
             Log.d("MainActivity", "dbresponse: $tasks")
@@ -109,10 +124,21 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun setupRecyclerView(){
-        tasksAdapter = toDoItemAdapter(arrayListOf(), object : toDoItemAdapter.OnAdapterListener{
+        tasksAdapter = toDoItemAdapter(this, arrayListOf(), object : toDoItemAdapter.OnAdapterListener{
+
             override fun onClick(task: Task) {
-                //Toast.makeText(applicationContext, task.taskTitle, Toast.LENGTH_SHORT).show()
+                // read detail task
                 intentView(task.id, Constant.TYPE_READ)
+            }
+
+            override fun onUpdate(task: Task) {
+                intentEdit(task.id, Constant.TYPE_UPDATE)
+            }
+            override fun onDelete(task: Task) {
+                CoroutineScope(Dispatchers.IO).launch{
+                    db.taskDao().deleteTask(task)
+                    loadTask()
+                }
             }
         })
         todo_recycler.apply{
@@ -121,6 +147,5 @@ class MainActivity : AppCompatActivity() {
         }
         //todo_recycler?.setHasFixedSize(true)
     }
-
 
 }

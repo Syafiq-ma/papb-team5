@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -26,9 +27,15 @@ class NewTaskActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_task)
+        setupView()
         setupListener()
         Id = intent.getIntExtra("intent_id", 0)
         Toast.makeText(this, Id.toString(), Toast.LENGTH_SHORT).show()
+
+        val btnBack: Button = findViewById(R.id.btn_back)
+        btnBack.setOnClickListener{
+            startActivity(Intent(applicationContext, MainActivity::class.java))
+        }
 
     }
 
@@ -36,13 +43,15 @@ class NewTaskActivity : AppCompatActivity() {
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType){
             Constant.TYPE_CREATE -> {
-
+                button_update.visibility = View.GONE
             }
             Constant.TYPE_READ -> {
 
             }
             Constant.TYPE_UPDATE -> {
-
+                getTask()
+                button_save.visibility = View.GONE
+                button_update.visibility = View.VISIBLE
             }
         }
     }
@@ -52,6 +61,16 @@ class NewTaskActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch{
                 db.taskDao().insert(
                     Task(0, edit_title.text.toString(),
+                        edit_desc.text.toString())
+                )
+
+                finish()
+            }
+        }
+        button_update.setOnClickListener{
+            CoroutineScope(Dispatchers.IO).launch{
+                db.taskDao().updateTask(
+                    Task(Id, edit_title.text.toString(),
                         edit_desc.text.toString())
                 )
 
@@ -90,5 +109,14 @@ class NewTaskActivity : AppCompatActivity() {
         const val EXTRA_REPLY1 = "com.example.android.tasklistsql.REPLY1"
         const val EXTRA_REPLY2 = "com.example.android.tasklistsql.REPLY2"
     }*/
+
+    fun getTask(){
+        Id = intent.getIntExtra("intent_id", 0)
+        CoroutineScope(Dispatchers.IO).launch{
+            val tasks = db.taskDao().getTask(Id)[0]
+            edit_title.setText( tasks.taskTitle )
+            edit_desc.setText( tasks.taskDescription)
+        }
+    }
 
 }
