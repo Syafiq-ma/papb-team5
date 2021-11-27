@@ -1,15 +1,21 @@
 package com.example.papb_team5.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.papb_team5.MainActivity
 import com.example.papb_team5.R
 import com.example.papb_team5.data_entity.Task
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.todo_view.view.*
 
 class toDoItemAdapter(
+    private val context: Context,
     private val tasks: ArrayList<Task>,
     private val listener: OnAdapterListener
     ): RecyclerView.Adapter<toDoItemAdapter.ItemViewHolder>()
@@ -27,6 +33,7 @@ class toDoItemAdapter(
         holder.itemView.setOnClickListener{
             listener.onClick(item)
         }
+
         /*
         holder.bind(item.taskTitle, item.taskDescription)
 
@@ -44,8 +51,6 @@ class toDoItemAdapter(
         }*/
 
     }
-
-
     override fun getItemCount() =  tasks.size
 
 
@@ -59,9 +64,8 @@ class toDoItemAdapter(
             descTextView?.text = desc
 
         }
-
     }*/
-    class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view)
+    inner class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     fun setData(list: List<Task>){
         tasks.clear()

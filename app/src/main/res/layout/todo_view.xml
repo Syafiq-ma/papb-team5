@@ -48,19 +48,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <android.widget.Button
+                        android:id="@+id/todo_elipsis"
+                        android:layout_width="4dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"
                         android:layout_alignParentBottom="true"
                         android:layout_marginTop="2dp"
-                        android:layout_marginRight="0dp"
+                        android:layout_marginRight="5dp"
                         android:layout_marginBottom="2dp"
-                        android:text="8:00 AM"
-                        android:textColor="@color/grey_check_btn"
-                        android:textSize="12sp" />
+                        android:background="@drawable/ic_btn_elipsis"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
                 </RelativeLayout>
+
             </LinearLayout>
 
         </LinearLayout>
