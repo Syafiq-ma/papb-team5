@@ -1,11 +1,14 @@
 package com.example.papb_team5
 
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.PopupMenu
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.papb_team5.adapter.toDoItemAdapter
 import com.example.papb_team5.data_entity.Task
@@ -36,53 +39,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //popupMenu()
-
         setupListener()
         setupRecyclerView()
 
-/*
-        //val recyclerView = findViewById<RecyclerView>(R.id.todo_recycler)
-        //val adapter = toDoItemAdapter(arrayListOf())
-        //val adapter = TaskItemAdapter()
-        //recyclerView.adapter = toDoItemAdapter(this, arrayListOf())
-        //recyclerView.layoutManager = LinearLayoutManager(this)
-
-        //recyclerView?.setHasFixedSize(true)*/
-
-        /*
-        taskViewModel.allTasks.observe(this) { tasks ->
-            // Update the cached copy of the words in the adapter.
-            tasks.let { adapter.submitList(it) }
-        }*/
-
-        /*
-        bottomNavigationView.setOnNavigationItemSelectedListener {
-            when(it.itemId){
-                //R.id.home->setCurrentFragment(mainFragment)
-
-                /*
-                R.id.home-> {
-                    val intent = Intent(this@MainActivity, fragment_home::class.java)
-                    startActivity(intent)
-                }
-                */
-
-                //.id.calendar->setCurrentFragment()
-                //R.id.profile->setCurrentFragment(profileFragment)
-                R.id.profile->{
-                    val intent = Intent(this@MainActivity, profileActivity::class.java)
-                    startActivity(intent)
-                }
-            }
-            true
-        }*/
     }
-
-    /*
-    private fun popupMenu(){
-        val popupMenu = PopupMenu(applicationContext, t)
-    }*/
 
     override fun onStart() {
         super.onStart()
@@ -135,10 +95,7 @@ class MainActivity : AppCompatActivity() {
                 intentEdit(task.id, Constant.TYPE_UPDATE)
             }
             override fun onDelete(task: Task) {
-                CoroutineScope(Dispatchers.IO).launch{
-                    db.taskDao().deleteTask(task)
-                    loadTask()
-                }
+                deleteDialog(task)
             }
         })
         todo_recycler.apply{
@@ -146,6 +103,26 @@ class MainActivity : AppCompatActivity() {
             adapter = tasksAdapter
         }
         //todo_recycler?.setHasFixedSize(true)
+    }
+
+    private fun deleteDialog(task: Task){
+        val alertDialog = AlertDialog.Builder(this)
+
+        alertDialog.apply{
+            setTitle("Konfirmasi")
+            setMessage("Yakin hapus ${task.taskTitle}?")
+            setNegativeButton("Batal") { dialog, i ->
+                dialog.dismiss()
+            }
+            setPositiveButton("Hapus") { dialog, i ->
+                dialog.dismiss()
+                CoroutineScope(Dispatchers.IO).launch{
+                    db.taskDao().deleteTask(task)
+                    loadTask()
+                }
+            }
+        }
+        alertDialog.show()
     }
 
 }

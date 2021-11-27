@@ -47,8 +47,8 @@ class toDoItemAdapter(
                         true
                     }
                     R.id.nav_delete -> {
-                        Toast.makeText(context, "Task deleted", Toast.LENGTH_SHORT).show()
                         listener.onDelete(itemTask)
+                        Toast.makeText(context, "Task deletion", Toast.LENGTH_SHORT).show()
                         true
                     }
                     else -> false
@@ -58,37 +58,9 @@ class toDoItemAdapter(
             popupMenu.show()
         }
 
-        /*
-        holder.bind(item.taskTitle, item.taskDescription)
-
-        holder.titleTextView.text = context.resources.getString(item.id)
-        holder.descTextView?.text = context.resources.getString(item.id)
-
-
-        holder.itemView.setOnClickListener{
-            val context = holder.view.context
-
-            val intent = Intent(context, detailTugas::class.java)
-            intent.putExtra(detailTugas.TITLE, holder.titleTextView.text.toString())
-            intent.putExtra(detailTugas.DESC, holder.descTextView?.text.toString())
-            context.startActivity(intent)
-        }*/
-
     }
     override fun getItemCount() =  tasks.size
 
-
-    /*class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view){
-
-        val titleTextView: TextView = view.findViewById(R.id.textView15)
-        val descTextView: TextView? = view.findViewById(R.id.txt_infoDetail)
-
-        fun bind(title: String?, desc: String?) {
-            titleTextView.text = title
-            descTextView?.text = desc
-
-        }
-    }*/
     inner class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     fun setData(list: List<Task>){
@@ -102,8 +74,4 @@ class toDoItemAdapter(
         fun onUpdate(task: Task)
         fun onDelete(task: Task)
     }
-
-
-
-
 }
