@@ -3,6 +3,8 @@ package com.example.papb_team5
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.TextView
 import android.widget.Toast
@@ -68,7 +70,6 @@ class detailTugas : AppCompatActivity() {
             popupMenu.inflate(R.menu.todo_popup_menu)
             popupMenu.show()
         }
-
     }
 
     fun setupView(){
@@ -81,7 +82,6 @@ class detailTugas : AppCompatActivity() {
                 getTask()
             }
             Constant.TYPE_UPDATE -> {
-
             }
         }
     }

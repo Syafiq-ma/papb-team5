@@ -12,6 +12,7 @@ import com.example.papb_team5.MainActivity
 import com.example.papb_team5.R
 import com.example.papb_team5.data_entity.Task
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.todo_view.*
 import kotlinx.android.synthetic.main.todo_view.view.*
 
 class toDoItemAdapter(
@@ -32,6 +33,26 @@ class toDoItemAdapter(
         holder.view.textView15.text = item.taskTitle
         holder.itemView.setOnClickListener{
             listener.onClick(item)
+        }
+
+        val button: View = holder.view.findViewById(R.id.todo_elipsis_layout)
+        button.setOnClickListener{
+            val popupMenu = PopupMenu(context, it)
+            popupMenu.setOnMenuItemClickListener { item ->
+                when (item.itemId){
+                    R.id.nav_edit ->{
+                        Toast.makeText(context, "Edit Button pressed", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    R.id.nav_delete -> {
+                        Toast.makeText(context, "Delete Button pressed", Toast.LENGTH_SHORT).show()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.inflate(R.menu.todo_popup_menu)
+            popupMenu.show()
         }
 
         /*
@@ -75,6 +96,7 @@ class toDoItemAdapter(
 
     interface OnAdapterListener{
         fun onClick(task: Task)
+        fun onUpdate(task: Task)
     }
 
 

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -36,13 +37,14 @@ class NewTaskActivity : AppCompatActivity() {
         val intentType = intent.getIntExtra("intent_type", 0)
         when (intentType){
             Constant.TYPE_CREATE -> {
-
+                button_update.visibility = View.GONE
             }
             Constant.TYPE_READ -> {
 
             }
             Constant.TYPE_UPDATE -> {
-
+                button_save.visibility = View.GONE
+                button_update.visibility = View.VISIBLE
             }
         }
     }

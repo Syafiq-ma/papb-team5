@@ -48,18 +48,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <android.widget.Button
-                        android:id="@+id/todo_elipsis"
-                        android:layout_width="4dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/todo_elipsis_layout"
+                        android:layout_width="16dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@drawable/ic_btn_elipsis"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                        android:layout_alignParentBottom="true">
+
+                        <android.widget.Button
+                            android:id="@+id/todo_elipsis"
+                            android:layout_width="5dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentBottom="true"
+                            android:background="@drawable/ic_btn_elipsis"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
                 </RelativeLayout>
 

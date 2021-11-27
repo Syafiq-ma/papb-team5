@@ -11,8 +11,11 @@ import com.example.papb_team5.adapter.toDoItemAdapter
 import com.example.papb_team5.data_entity.Task
 import com.example.papb_team5.room_database.Constant
 import com.example.papb_team5.room_database.TaskRoomDatabase
+import kotlinx.android.synthetic.main.activity_detail_tugas.*
+import kotlinx.android.synthetic.main.activity_detail_tugas.btn_elipsis_layout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_new_task.*
+import kotlinx.android.synthetic.main.todo_view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -119,8 +122,12 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerView(){
         tasksAdapter = toDoItemAdapter(this, arrayListOf(), object : toDoItemAdapter.OnAdapterListener{
             override fun onClick(task: Task) {
-                //Toast.makeText(applicationContext, task.taskTitle, Toast.LENGTH_SHORT).show()
+                // read detail task
                 intentView(task.id, Constant.TYPE_READ)
+            }
+
+            override fun onUpdate(task: Task) {
+                intentEdit(task.id, Constant.TYPE_UPDATE)
             }
         })
         todo_recycler.apply{
