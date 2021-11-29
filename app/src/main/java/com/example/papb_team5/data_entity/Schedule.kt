@@ -1,4 +1,12 @@
 package com.example.papb_team5.data_entity
 
-class Schedule {
-}
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "schedule_table")
+data class Schedule(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val scheduleTitle: String
+
+)
