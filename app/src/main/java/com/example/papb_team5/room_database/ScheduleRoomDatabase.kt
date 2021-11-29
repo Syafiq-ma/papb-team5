@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.papb_team5.data_entity.Schedule
 import kotlinx.coroutines.CoroutineScope
-import com.example.papb_team5.data_entity.Task
 import kotlinx.coroutines.launch
 
 @Database(
