@@ -21,30 +21,6 @@ import kotlinx.coroutines.launch
 
 class detailTugas : AppCompatActivity() {
 
-    /*
-    companion object{
-        const val TITLE = "letter"
-        const val DESC = "letter"
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_tugas)
-
-        val titleTextView: TextView = findViewById<TextView>(R.id.editText_judulTugas)
-        val descTextView: TextView = findViewById<TextView>(R.id.txt_infoDetail)
-        val title = intent?.extras?.getString(TITLE).toString()
-        val desc = intent?.extras?.getString(DESC).toString()
-
-        titleTextView.text = title
-        descTextView.text = desc
-
-        btn_back.setOnClickListener{
-            var intent = Intent(this@detailTugas, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }*/
-
     val db by lazy { TaskRoomDatabase(this) }
     private var Id: Int = 0
 
@@ -92,20 +68,6 @@ class detailTugas : AppCompatActivity() {
             }
         }
     }
-
-    /*
-    fun setupListener(){
-        button_save.setOnClickListener{
-            CoroutineScope(Dispatchers.IO).launch{
-                db.taskDao().insert(
-                    Task(0, edit_title.text.toString(),
-                        edit_desc.text.toString())
-                )
-
-                finish()
-            }
-        }
-    }*/
 
     fun getTask(){
         Id = intent.getIntExtra("intent_id", 0)

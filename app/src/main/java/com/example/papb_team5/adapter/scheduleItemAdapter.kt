@@ -4,38 +4,36 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.papb_team5.MainActivity
 import com.example.papb_team5.R
-import com.example.papb_team5.data_entity.Task
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.todo_view.*
+import com.example.papb_team5.data_entity.Schedule
+import kotlinx.android.synthetic.main.schedule_view.view.*
 import kotlinx.android.synthetic.main.todo_view.view.*
+import kotlinx.android.synthetic.main.todo_view.view.textView15
 
-class toDoItemAdapter(
+class scheduleItemAdapter(
     private val context: Context,
-    private val tasks: ArrayList<Task>,
+    private val schedules: ArrayList<Schedule>,
     private val listener: OnAdapterListener
-    ): RecyclerView.Adapter<toDoItemAdapter.ItemViewHolder>()
+): RecyclerView.Adapter<scheduleItemAdapter.ItemViewHolder>()
 {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.todo_view, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.schedule_view, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
 
-        val itemTask = tasks[position]
-        holder.view.textView15.text = itemTask.taskTitle
+        val itemSchedule = schedules[position]
+        holder.view.schedule_title.text = itemSchedule.scheduleTitle
         holder.itemView.setOnClickListener{
-            listener.onClick(itemTask)
+            listener.onClick(itemSchedule)
         }
 
-        val button: View = holder.view.findViewById(R.id.todo_elipsis_layout)
+        val button: View = holder.view.findViewById(R.id.schedule_elipsis_layout)
 
         button.setOnClickListener{
             val popupMenu = PopupMenu(context, it)
@@ -43,35 +41,34 @@ class toDoItemAdapter(
                 when (item.itemId){
                     R.id.nav_edit ->{
                         //Toast.makeText(context, "Edit Button pressed", Toast.LENGTH_SHORT).show()
-                        listener.onUpdate(itemTask)
+                        listener.onUpdate(itemSchedule)
                         true
                     }
                     R.id.nav_delete -> {
-                        listener.onDelete(itemTask)
+                        listener.onDelete(itemSchedule)
                         Toast.makeText(context, "Task deletion", Toast.LENGTH_SHORT).show()
                         true
                     }
                     else -> false
                 }
             }
-            popupMenu.inflate(R.menu.todo_popup_menu)
+            popupMenu.inflate(R.menu.schedule_popup_menu)
             popupMenu.show()
         }
-
     }
-    override fun getItemCount() =  tasks.size
+    override fun getItemCount() =  schedules.size
 
     inner class ItemViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
-    fun setData(list: List<Task>){
-        tasks.clear()
-        tasks.addAll(list)
+    fun setData(list: List<Schedule>){
+        schedules.clear()
+        schedules.addAll(list)
         notifyDataSetChanged()
     }
 
     interface OnAdapterListener{
-        fun onClick(task: Task)
-        fun onUpdate(task: Task)
-        fun onDelete(task: Task)
+        fun onClick(schedule: Schedule)
+        fun onUpdate(schedule: Schedule)
+        fun onDelete(schedule: Schedule)
     }
 }

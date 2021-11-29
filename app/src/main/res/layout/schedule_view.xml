@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/schedule_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/base"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/schedule_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins"
+        android:text="07:15 AM"
+        android:textColor="@color/greyDetail"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="@+id/schedule_base"
+        app:layout_constraintTop_toTopOf="@+id/schedule_base" />
+
+    <TextView
+        android:id="@+id/schedule_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/poppins_bold"
+        android:inputType="textMultiLine"
+        android:text="Pengembangan Aplikasi Piranti Bergerak"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/schedule_base"
+        app:layout_constraintStart_toStartOf="@+id/schedule_base"
+        app:layout_constraintTop_toTopOf="@+id/schedule_base" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/schedule_base"
+        app:layout_constraintStart_toStartOf="@+id/schedule_base"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_title">
+
+        <View
+            android:id="@+id/schedule_time_remaining"
+            android:layout_width="50dp"
+            android:layout_height="18dp"
+            android:background="@drawable/now_button"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/schedule_time_remaining_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Now"
+            android:textColor="@color/dark_green"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/schedule_time_remaining"
+            app:layout_constraintEnd_toEndOf="@+id/schedule_time_remaining"
+            app:layout_constraintStart_toStartOf="@+id/schedule_time_remaining"
+            app:layout_constraintTop_toTopOf="@+id/schedule_time_remaining" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/schedule_elipsis_layout"
+        android:layout_width="20dp"
+        android:layout_height="25dp"
+        app:layout_constraintTop_toTopOf="@id/schedule_base"
+        app:layout_constraintBottom_toBottomOf="@id/schedule_base"
+        app:layout_constraintEnd_toEndOf="@id/schedule_base"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        >
+        <Button
+            android:id="@+id/btn_elipsis"
+            android:layout_width="5dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_btn_elipsis"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
