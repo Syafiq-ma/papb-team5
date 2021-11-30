@@ -75,6 +75,7 @@ class detailTugas : AppCompatActivity() {
             val tasks = db.taskDao().getTask(Id)[0]
             editText_judulTugas.setText( tasks.taskTitle )
             txt_infoDetail.setText( tasks.taskDescription)
+
         }
     }
 

@@ -104,7 +104,7 @@ class NewTaskActivity : AppCompatActivity() {
             val tasks = db.taskDao().getTask(Id)[0]
             edit_title.setText( tasks.taskTitle )
             edit_desc.setText( tasks.taskDescription)
-            edit_date.setText( tasks.taskDate)
+            txt_detailDeadline.setText(tasks.taskDate)
         }
     }
 

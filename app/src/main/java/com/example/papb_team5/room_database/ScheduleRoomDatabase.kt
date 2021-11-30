@@ -33,7 +33,7 @@ abstract class ScheduleRoomDatabase : RoomDatabase() {
             context.applicationContext,
             ScheduleRoomDatabase::class.java,
             "schedule_table.db"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
     }
 

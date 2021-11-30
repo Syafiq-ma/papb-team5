@@ -3,9 +3,10 @@
     android:height="120dp"
     android:viewportWidth="200"
     android:viewportHeight="120">
+
   <path
       android:pathData="M25,10L175,10A15,15 0,0 1,190 25L190,95A15,15 0,0 1,175 110L25,110A15,15 0,0 1,10 95L10,25A15,15 0,0 1,25 10z"
-      android:fillColor="#ffffff"/>
+      android:fillColor="#F9F9F9"/>
   <path
       android:strokeWidth="1"
       android:pathData="M25,10.5L175,10.5A14.5,14.5 0,0 1,189.5 25L189.5,95A14.5,14.5 0,0 1,175 109.5L25,109.5A14.5,14.5 0,0 1,10.5 95L10.5,25A14.5,14.5 0,0 1,25 10.5z"

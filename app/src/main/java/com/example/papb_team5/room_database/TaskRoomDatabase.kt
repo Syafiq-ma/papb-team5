@@ -32,7 +32,7 @@ abstract class TaskRoomDatabase : RoomDatabase() {
             context.applicationContext,
             TaskRoomDatabase::class.java,
             "task_table.db"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
 
         /*
         fun getDatabase(
