@@ -1,6 +1,7 @@
 package com.example.papb_team5
 
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,10 @@ import kotlinx.android.synthetic.main.activity_new_task.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class NewTaskActivity : AppCompatActivity() {
 
@@ -57,11 +62,26 @@ class NewTaskActivity : AppCompatActivity() {
     }
 
     fun setupListener(){
+        val calendar = Calendar.getInstance()
+        edit_date.setOnClickListener {
+            val dateSetListener =
+                DatePickerDialog.OnDateSetListener { datePicker, year, month, dayOfMonth ->
+                    calendar.set(year, month, dayOfMonth)
+                    edit_date.setText(SimpleDateFormat("dd/MM/yyyy", Locale.US).format(calendar.time))
+                }
+            val datepicker = DatePickerDialog( this, dateSetListener,
+            calendar.get(Calendar.YEAR),
+            calendar.get(Calendar.MONTH),
+            calendar.get(Calendar.DAY_OF_MONTH)
+            )
+            datepicker.show()
+        }
         button_save.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch{
                 db.taskDao().insert(
                     Task(0, edit_title.text.toString(),
-                        edit_desc.text.toString())
+                        edit_desc.text.toString(),
+                        edit_date.text.toString())
                 )
 
                 finish()
@@ -71,7 +91,9 @@ class NewTaskActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch{
                 db.taskDao().updateTask(
                     Task(Id, edit_title.text.toString(),
-                        edit_desc.text.toString())
+                        edit_desc.text.toString(),
+                        edit_date.text.toString())
+
                 )
 
                 finish()

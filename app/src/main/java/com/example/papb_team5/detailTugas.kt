@@ -18,6 +18,8 @@ import kotlinx.android.synthetic.main.activity_new_task.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 class detailTugas : AppCompatActivity() {
 
@@ -113,6 +115,7 @@ class detailTugas : AppCompatActivity() {
             val tasks = db.taskDao().getTask(Id)[0]
             editText_judulTugas.setText( tasks.taskTitle )
             txt_infoDetail.setText( tasks.taskDescription)
+            edit_date.setText( tasks.taskDate)
         }
     }
 
