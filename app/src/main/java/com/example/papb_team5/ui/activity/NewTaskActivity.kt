@@ -1,20 +1,17 @@
-package com.example.papb_team5
+package com.example.papb_team5.ui.activity
 
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
-import com.example.papb_team5.data_entity.Task
-import com.example.papb_team5.room_database.Constant
-import com.example.papb_team5.room_database.TaskRoomDatabase
-import kotlinx.android.synthetic.main.activity_detail_tugas.*
+import com.example.papb_team5.MainActivity
+import com.example.papb_team5.R
+import com.example.papb_team5.data.data.data_entity.Task
+import com.example.papb_team5.data.data.room_database.Constant
+import com.example.papb_team5.data.data.room_database.Room.TaskRoomDatabase
 import kotlinx.android.synthetic.main.activity_new_task.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +21,7 @@ import java.util.*
 
 class NewTaskActivity : AppCompatActivity() {
 
-    val db by lazy {TaskRoomDatabase(this)}
+    val db by lazy { TaskRoomDatabase(this) }
     private var Id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +71,7 @@ class NewTaskActivity : AppCompatActivity() {
             )
             datepicker.show()
         }
+
         button_save.setOnClickListener{
             CoroutineScope(Dispatchers.IO).launch{
                 db.taskDao().insert(
@@ -104,7 +102,7 @@ class NewTaskActivity : AppCompatActivity() {
             val tasks = db.taskDao().getTask(Id)[0]
             edit_title.setText( tasks.taskTitle )
             edit_desc.setText( tasks.taskDescription)
-            txt_detailDeadline.setText(tasks.taskDate)
+            edit_date.setText(tasks.taskDate)
         }
     }
 

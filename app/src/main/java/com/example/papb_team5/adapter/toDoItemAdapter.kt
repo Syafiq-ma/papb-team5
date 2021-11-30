@@ -4,15 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.papb_team5.MainActivity
 import com.example.papb_team5.R
-import com.example.papb_team5.data_entity.Task
-import kotlinx.android.synthetic.main.activity_main.view.*
-import kotlinx.android.synthetic.main.todo_view.*
+import com.example.papb_team5.data.data.data_entity.Task
 import kotlinx.android.synthetic.main.todo_view.view.*
 
 class toDoItemAdapter(

@@ -1,17 +1,15 @@
-package com.example.papb_team5.room_database
+package com.example.papb_team5.data.data.room_database.Room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.papb_team5.data_entity.Schedule
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.launch
+import com.example.papb_team5.data.data.data_entity.Schedule
+import com.example.papb_team5.data.data.room_database.Dao.ScheduleDao
 
 @Database(
     entities = [Schedule::class],
-    version = 1
+    version = 2
 )
 
 abstract class ScheduleRoomDatabase : RoomDatabase() {

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profileActivity">
+    tools:context=".ui.activity.profileActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -202,64 +202,20 @@
 
     </HorizontalScrollView>
 
-    <ImageView
-        android:id="@+id/schedule_base"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:src="@drawable/base"
-        app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/deleted_schedule_recycler"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
+        android:orientation="horizontal"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/tasks_history_heading"
+        tools:listitem="@layout/schedule_view">
 
-    <TextView
-        android:id="@+id/schedule_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins"
-        android:text="07:15 AM"
-        android:textColor="@color/greyDetail"
-        android:textSize="8sp"
-        app:layout_constraintStart_toStartOf="@+id/schedule_base"
-        app:layout_constraintTop_toTopOf="@+id/schedule_base" />
-
-    <TextView
-        android:id="@+id/schedule_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/poppins_bold"
-        android:text="Pengembangan Aplikasi\nPiranti Bergerak"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/schedule_base"
-        app:layout_constraintTop_toTopOf="@+id/schedule_base" />
-
-    <View
-        android:id="@+id/schedule_time_remaining"
-        android:layout_width="50dp"
-        android:layout_height="18dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/base_green"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="@+id/schedule_base"
-        app:layout_constraintStart_toStartOf="@+id/schedule_base" />
-
-    <TextView
-        android:id="@+id/schedule_time_remaining_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Now"
-        android:textColor="@color/green"
-        android:textSize="8sp"
-        app:layout_constraintBottom_toBottomOf="@+id/schedule_time_remaining"
-        app:layout_constraintEnd_toEndOf="@+id/schedule_time_remaining"
-        app:layout_constraintStart_toStartOf="@+id/schedule_time_remaining"
-        app:layout_constraintTop_toTopOf="@+id/schedule_time_remaining" />
+    </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"

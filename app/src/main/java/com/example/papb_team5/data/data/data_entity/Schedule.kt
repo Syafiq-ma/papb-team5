@@ -1,4 +1,4 @@
-package com.example.papb_team5.data_entity
+package com.example.papb_team5.data.data.data_entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class Schedule(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val scheduleTitle: String
+    val scheduleTitle: String,
+    val scheduleTime: String
 
 )

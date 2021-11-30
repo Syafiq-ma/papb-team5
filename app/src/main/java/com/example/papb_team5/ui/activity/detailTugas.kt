@@ -1,20 +1,16 @@
-package com.example.papb_team5
+package com.example.papb_team5.ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.PopupMenu
-import android.widget.TextView
 import android.widget.Toast
-import com.example.papb_team5.adapter.toDoItemAdapter
-import com.example.papb_team5.data_entity.Task
-import com.example.papb_team5.room_database.Constant
-import com.example.papb_team5.room_database.TaskRoomDatabase
+import com.example.papb_team5.MainActivity
+import com.example.papb_team5.R
+import com.example.papb_team5.data.data.room_database.Constant
+import com.example.papb_team5.data.data.room_database.Room.TaskRoomDatabase
 import kotlinx.android.synthetic.main.activity_detail_tugas.*
-import kotlinx.android.synthetic.main.activity_new_task.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -75,7 +71,7 @@ class detailTugas : AppCompatActivity() {
             val tasks = db.taskDao().getTask(Id)[0]
             editText_judulTugas.setText( tasks.taskTitle )
             txt_infoDetail.setText( tasks.taskDescription)
-
+            txt_detailDeadline.setText(tasks.taskDate)
         }
     }
 

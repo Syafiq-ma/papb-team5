@@ -1,8 +1,7 @@
-package com.example.papb_team5.room_database
+package com.example.papb_team5.data.data.room_database.Dao
 
 import androidx.room.*
-import com.example.papb_team5.data_entity.Task
-import kotlinx.coroutines.flow.Flow
+import com.example.papb_team5.data.data.data_entity.Task
 
 @Dao
 interface TaskDao {

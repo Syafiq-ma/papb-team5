@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".NewScheduleActivity">
+    tools:context=".ui.activity.NewScheduleActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -93,71 +93,15 @@
                 android:id="@+id/dateButton"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
-                android:background="@drawable/ic_baseline_date_range_24"
-                app:layout_constraintRight_toLeftOf="@id/dateText"
+                android:background="@drawable/ic_baseline_access_time_24"
+                app:layout_constraintRight_toLeftOf="@id/dateTime"
                 app:layout_constraintBottom_toBottomOf="@id/dateLayout"
                 app:layout_constraintLeft_toLeftOf="@id/dateLayout"
                 app:layout_constraintTop_toTopOf="@id/dateLayout"
                 android:layout_margin="20dp"/>
 
             <TextView
-                android:id="@+id/dateText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:fontFamily="@font/poppins_semibold"
-                android:text="Tanggal"
-                android:textColor="@color/white"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@id/dateEditText"
-                app:layout_constraintLeft_toRightOf="@+id/dateButton"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.504" />
-
-            <TextView
-                android:id="@+id/dateEditText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
-                android:fontFamily="@font/poppins"
-                android:text="Date"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/dateButton"
-                app:layout_constraintTop_toBottomOf="@id/dateText"
-                app:layout_constraintVertical_bias="0.504" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/infoLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/infoLayout"
-            android:layout_margin="15dp">
-
-            <ImageView
-                android:id="@+id/timeLayout"
-                android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@drawable/base_extradarkblue"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/timeButton"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
-                android:background="@drawable/ic_baseline_access_time_24"
-                app:layout_constraintRight_toLeftOf="@id/timeText"
-                app:layout_constraintBottom_toBottomOf="@id/timeLayout"
-                app:layout_constraintLeft_toLeftOf="@id/timeLayout"
-                app:layout_constraintTop_toTopOf="@id/timeLayout"
-                android:layout_margin="20dp"/>
-
-            <TextView
-                android:id="@+id/timeText"
+                android:id="@+id/dateTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
@@ -165,26 +109,27 @@
                 android:text="Waktu"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@id/timeEditText"
-                app:layout_constraintLeft_toRightOf="@+id/timeButton"
+                app:layout_constraintBottom_toTopOf="@id/dateTimeText"
+                app:layout_constraintLeft_toRightOf="@+id/dateButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.504" />
 
             <TextView
-                android:id="@+id/timeEditText"
+                android:id="@+id/dateTimeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="35dp"
                 android:fontFamily="@font/poppins"
-                android:text="Time"
+                android:text=" "
                 android:textColor="@color/white"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/timeButton"
-                app:layout_constraintTop_toBottomOf="@id/timeText"
+                app:layout_constraintLeft_toRightOf="@+id/dateButton"
+                app:layout_constraintTop_toBottomOf="@id/dateTime"
                 app:layout_constraintVertical_bias="0.504" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <Button
             android:id="@+id/button_save"

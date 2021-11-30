@@ -1,7 +1,7 @@
-package com.example.papb_team5.room_database
+package com.example.papb_team5.data.data.room_database.Dao
 
 import androidx.room.*
-import com.example.papb_team5.data_entity.Schedule
+import com.example.papb_team5.data.data.data_entity.Schedule
 
 @Dao
 interface ScheduleDao {

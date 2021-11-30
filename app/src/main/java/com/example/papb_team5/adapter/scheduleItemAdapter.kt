@@ -8,10 +8,8 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.papb_team5.R
-import com.example.papb_team5.data_entity.Schedule
+import com.example.papb_team5.data.data.data_entity.Schedule
 import kotlinx.android.synthetic.main.schedule_view.view.*
-import kotlinx.android.synthetic.main.todo_view.view.*
-import kotlinx.android.synthetic.main.todo_view.view.textView15
 
 class scheduleItemAdapter(
     private val context: Context,
@@ -29,6 +27,7 @@ class scheduleItemAdapter(
 
         val itemSchedule = schedules[position]
         holder.view.schedule_title.text = itemSchedule.scheduleTitle
+        holder.view.schedule_time.text = itemSchedule.scheduleTime
         holder.itemView.setOnClickListener{
             listener.onClick(itemSchedule)
         }

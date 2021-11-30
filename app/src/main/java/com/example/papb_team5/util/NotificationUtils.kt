@@ -12,12 +12,12 @@ import com.example.papb_team5.R
 private val NOTIFICATION_ID = 0
 private val REQUEST_CODE = 0
 private val FLAGS = 0
-/*
-fun NotificationManager.sendNotification(messageBody: String, applicationContext: Context){
-    //creating the intent
-    val contentIntent = Intent(applicationContext, MainActivity::class.java)
-    //creating pending intent
 
+fun NotificationManager.sendNotification(messageBody: String, applicationContext: Context) {
+
+    // TODO: Step 1.11 create intent
+    val contentIntent = Intent(applicationContext, MainActivity::class.java)
+    // TODO: Step 1.12 create PendingIntent
     val contentPendingIntent = PendingIntent.getActivity(
         applicationContext,
         NOTIFICATION_ID,
@@ -25,24 +25,30 @@ fun NotificationManager.sendNotification(messageBody: String, applicationContext
         PendingIntent.FLAG_UPDATE_CURRENT
     )
 
-    val snoozeIntent = Intent(applicationContext, SnoozeReceiver::class.java)
-    val snoozePendingIntent: PendingIntent = PendingIntent.getBroadcast(
-        applicationContext,
-        REQUEST_CODE,
-        snoozeIntent,
-        FLAGS)
-
+    // TODO: Step 1.2 get an instance of NotificationCompat.Builder
+    // Build the notification
     val builder = NotificationCompat.Builder(
         applicationContext,
-        applicationContext.getString(R.string.task_notification_channel_id)
+        applicationContext.getString(R.string.scheduleNotificationId)
     )
-        //add notification action
 
+        // TODO: Step 1.3 set title, text and icon to builder
+        .setSmallIcon(R.drawable.ic_btn_notification)
+        .setContentTitle(applicationContext
+            .getString(R.string.scheduleNotificationTitle))
+        .setContentText(messageBody)
+
+        // TODO: Step 1.13 set content intent
+        .setContentIntent(contentPendingIntent)
+        .setAutoCancel(true)
+
+        // TODO: Step 2.5 set priority
         .setPriority(NotificationCompat.PRIORITY_HIGH)
 
+    // TODO: Step 1.4 call notify
     notify(NOTIFICATION_ID, builder.build())
 }
 
 fun NotificationManager.cancelNotifications() {
     cancelAll()
-}*/
+}

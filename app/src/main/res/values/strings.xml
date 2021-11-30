@@ -13,6 +13,10 @@
     <string name="button_save">Simpan</string>
     <string name="empty_not_saved">Task is not saved because it is empty!</string>
     <string name="add_task">Add Task</string>
+    <string name="scheduleNotificationTitle">A reminder has been deleted!</string>
+    <string name="scheduleNotificationChannelDesc">Reminder</string>
+    <string name="scheduleNotificationId">Reminder App</string>
+    <string name="scheduleNotificationname">Schedule</string>
 
 
 </resources>

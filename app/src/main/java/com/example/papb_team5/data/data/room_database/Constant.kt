@@ -1,4 +1,4 @@
-package com.example.papb_team5.room_database
+package com.example.papb_team5.data.data.room_database
 
 class Constant {
     companion object{

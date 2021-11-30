@@ -1,26 +1,36 @@
 package com.example.papb_team5
 
-import android.content.DialogInterface
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.PopupMenu
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.papb_team5.adapter.scheduleItemAdapter
 import com.example.papb_team5.adapter.toDoItemAdapter
-import com.example.papb_team5.data_entity.Schedule
-import com.example.papb_team5.data_entity.Task
-import com.example.papb_team5.room_database.Constant
-import com.example.papb_team5.room_database.ScheduleRoomDatabase
-import com.example.papb_team5.room_database.TaskRoomDatabase
+import com.example.papb_team5.data.data.data_entity.Schedule
+import com.example.papb_team5.data.data.data_entity.Task
+import com.example.papb_team5.data.data.room_database.Constant
+import com.example.papb_team5.data.data.room_database.Room.ScheduleRoomDatabase
+import com.example.papb_team5.data.data.room_database.Room.TaskRoomDatabase
+import com.example.papb_team5.ui.activity.NewScheduleActivity
+import com.example.papb_team5.ui.activity.NewTaskActivity
+import com.example.papb_team5.ui.activity.detailTugas
+import com.example.papb_team5.ui.activity.profileActivity
 import kotlinx.android.synthetic.main.activity_detail_tugas.*
-import kotlinx.android.synthetic.main.activity_detail_tugas.btn_elipsis_layout
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.bottomNavigationView
 import kotlinx.android.synthetic.main.activity_new_task.*
+import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.schedule_view.*
 import kotlinx.android.synthetic.main.todo_view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,6 +43,10 @@ class MainActivity : AppCompatActivity() {
     val db2 by lazy { ScheduleRoomDatabase (this) }
     lateinit var tasksAdapter: toDoItemAdapter
     lateinit var schedulesAdapter: scheduleItemAdapter
+
+    val CHANNEL_ID = "channelID"
+    val CHANNEL_NAME = "channelName"
+    val NOTIFICATION_ID = 0
 
     /*
     private val newTaskActivityRequestCode = 1
@@ -47,6 +61,33 @@ class MainActivity : AppCompatActivity() {
         setupListener()
         setupRecyclerView()
         setupRecyclerView2()
+
+        createNotificationChannel()
+        val notification = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("Notification Testing")
+            .setContentText("It is working!")
+            .setSmallIcon(R.drawable.ic_btn_notification)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .build()
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        imageView2.setOnClickListener{
+            notificationManager.notify(NOTIFICATION_ID, notification)
+        }
+
+    }
+
+    fun createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            val channel = NotificationChannel(CHANNEL_ID, CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_DEFAULT).apply{
+                    lightColor = Color.GREEN
+                    enableLights(true)
+            }
+            val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(channel)
+        }
     }
 
     override fun onStart() {
@@ -82,6 +123,22 @@ class MainActivity : AppCompatActivity() {
         txt_addSchedule.setOnClickListener{
             intentScheduleEdit(0, Constant.TYPE_CREATE)
         }
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home -> {
+                }
+                R.id.calendar ->{
+                    Toast.makeText(applicationContext, "Sorry, feature is in work!", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.profile ->{
+                    startActivity(Intent(applicationContext, profileActivity::class.java))
+                }
+
+            }
+            true
+        }
+
     }
 
     fun intentView(Id: Int, intentType: Int){
@@ -116,8 +173,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
-
-
     private fun setupRecyclerView(){
         tasksAdapter = toDoItemAdapter(this, arrayListOf(), object : toDoItemAdapter.OnAdapterListener{
 
@@ -149,6 +204,10 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onDelete(schedule: Schedule){
                 deleteScheduleDialog(schedule)
+                createChannel(
+                    getString(R.string.scheduleNotificationId),
+                    getString(R.string.scheduleNotificationname)
+                )
             }
         })
         schedule_recycler.apply{
@@ -194,6 +253,32 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
         alertDialog.show()
     }
+
+    private fun createChannel(channelId: String, channelName: String) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val notificationChannel = NotificationChannel(
+                channelId,
+                channelName,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+                .apply {
+                    setShowBadge(false)
+                }
+
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.RED
+            notificationChannel.enableVibration(true)
+            notificationChannel.description = getString(R.string.scheduleNotificationChannelDesc)
+
+            val notificationManager = getSystemService(
+                NotificationManager::class.java
+            )
+            notificationManager.createNotificationChannel(notificationChannel)
+
+        }
+    }
+
 }

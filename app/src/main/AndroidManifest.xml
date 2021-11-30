@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Papbteam5">
         <activity
-            android:name=".NewScheduleActivity"
+            android:name=".ui.activity.NewScheduleActivity"
             android:exported="false" />
         <activity
-            android:name=".profileActivity"
+            android:name=".ui.activity.profileActivity"
             android:exported="true" />
         <activity
-            android:name=".NewTaskActivity"
+            android:name=".ui.activity.NewTaskActivity"
             android:exported="true" />
         <activity
-            android:name=".detailTugas"
+            android:name=".ui.activity.detailTugas"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
