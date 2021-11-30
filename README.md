@@ -12,8 +12,13 @@ Pengembangan Aplikasi Piranti Bergerak
 ## Deskripsi proyek
 Reminder App merupakan sebuah aplikasi yang digunakan sebagai pencatatan jadwal dari kuliah maupun tugas mahasiswa. Selain itu aplikasi ini juga bisa digunakan untuk mencatat kegiatan yang ingin dilakukan.
 
-## Tangkapan layar (*screenshot*) tampilan
-![1](https://user-images.githubusercontent.com/60891512/137004286-575f65ab-2fc5-4abe-8046-e3eb8082b807.jpg)
-![2](https://user-images.githubusercontent.com/60891512/137004294-5d4d65f7-bae6-48ec-8962-359136bf60ff.jpg)
-![3](https://user-images.githubusercontent.com/60891512/137004298-37aafa18-2b7f-49a9-9a4c-b2a9a5663094.jpg)
+## Tampilan aplikasi
+### Bagian *tasks*
+![LINE_ALBUM_211208_3](https://user-images.githubusercontent.com/26179451/145243518-0048314b-8c5c-479d-bed0-c62086472522.jpg)
+![LINE_ALBUM_211208_5](https://user-images.githubusercontent.com/26179451/145243569-519c294b-469c-42af-8524-9097b3d67099.jpg)
+![LINE_ALBUM_211208_6](https://user-images.githubusercontent.com/26179451/145243583-7e0c2495-33b4-4aea-a736-af520b9819d1.jpg)
 
+### Bagian *schedules*
+![LINE_ALBUM_211208_2](https://user-images.githubusercontent.com/26179451/145244043-0dc72db6-2755-4ae9-bb45-48740f23bc0f.jpg)
+![LINE_ALBUM_211208_3](https://user-images.githubusercontent.com/26179451/145244048-b334560d-8b20-43e7-bd91-d910332b0c35.jpg)
+![LINE_ALBUM_211208_1](https://user-images.githubusercontent.com/26179451/145244025-fc975a40-0b96-4f2d-bec9-1f3c4f01ffb9.jpg)
